@@ -6,3 +6,6 @@ utilisateurs:
     path:     /utilisateurs
     defaults: { _controller: UtilisateurBundle:Utilisateur:liste }
 
+utilisateursCreate:
+    path:     /utilisateurs/create
+    defaults: { _controller: UtilisateurBundle:Utilisateur:create }   
