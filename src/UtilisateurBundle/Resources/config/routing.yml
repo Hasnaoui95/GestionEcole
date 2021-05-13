@@ -8,4 +8,4 @@ utilisateurs:
 
 utilisateursCreate:
     path:     /utilisateurs/create
-    defaults: { _controller: UtilisateurBundle:Utilisateur:create }   
+    defaults: { _controller: UtilisateurBundle:Utilisateur:create }

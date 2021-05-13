@@ -1,0 +1,75 @@
+{% extends 'Template.html.twig' %}
+
+
+{% block body%}
+
+
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Niveaux</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Niveaux</a></li>
+              <li class="breadcrumb-item active">Liste</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+        <!-- /.content-header -->
+    <section class="content">
+    	<div class="container-fluid">
+    		<div class="row">
+    			<div class="col-md-12">
+    				<div class="card">
+    					<div class="card-header">
+			                <h3 class="card-title">Liste des Niveaux</h3>
+			                <div class="card-tools">
+			         			<div class="pull-right">
+									<a href="{{ path('niveauCreate') }}" class="btn btn-block bg-gradient-success"> Ajouter </a>
+			         			</div>		                  		                    
+			                </div>
+			             </div>
+    					<div class="card-body">
+			                <table class="table">
+			                  <thead>
+			                    <tr>
+			                      <th style="width: 10px">Id</th>
+			                      <th class="text-center">Libellé</th>
+								<!--	<th class="text-right" justify="flex-end">Actions</th> -->
+								</tr>
+			                  </thead>
+			                  <tbody>
+			                  	{%for u in niveaux %}
+			                    <tr>
+			                      <td class="text-center">{{u.id}}</td>
+			                      <td class="text-center">{{u.label}}</td>
+			                      <td class="text-right" justify="flex-end">
+					                <div class="btn-group btn-group-sm">
+			                        <a class="btn btn-warning" href="{{ path('editLevel', {'id': u.id}) }}"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+			                        <a class="btn btn-danger" href="{{ path('deleteLevel', {'id': u.id}) }}"><i class="fas fa-trash"></i></a>
+			                        </div>
+			                      </td>
+			                    </tr>
+			                    {% endfor %}
+			                  </tbody>
+			                </table>
+              			</div>
+    				</div>
+    				
+    			</div>
+    			
+    		</div>
+    	</div>
+    </section>    
+  </div>
+  <!-- /.content-wrapper -->
+
+
+{% endblock %}

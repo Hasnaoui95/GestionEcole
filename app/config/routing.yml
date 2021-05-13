@@ -1,3 +1,11 @@
+niveau:
+    resource: "@NiveauBundle/Resources/config/routing.yml"
+    prefix:   /niveaux
+
+salle:
+    resource: "@SalleBundle/Resources/config/routing.yml"
+    prefix:   /salles
+
 utilisateur:
     resource: "@UtilisateurBundle/Resources/config/routing.yml"
     prefix:   /

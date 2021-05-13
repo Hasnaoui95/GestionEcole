@@ -1,0 +1,15 @@
+salle_homepage:
+    path:     /
+    defaults: { _controller: SalleBundle:Salle:list }
+
+salleCreate:
+    path:     /create
+    defaults: { _controller: SalleBundle:Salle:create }
+
+edit:
+    path:     /edit/{id}
+    defaults: { _controller: SalleBundle:Salle:edit }
+
+delete:
+    path: /delete/{id}
+    defaults: { _controller: SalleBundle:Salle:delete }
