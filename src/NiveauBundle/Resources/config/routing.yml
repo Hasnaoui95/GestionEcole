@@ -1,0 +1,15 @@
+niveau_homepage:
+    path:     /
+    defaults: { _controller: NiveauBundle:Niveau:list }
+
+niveauCreate:
+    path:     /create
+    defaults: { _controller: NiveauBundle:Niveau:create }
+
+editLevel:
+    path:     /editLevel/{id}
+    defaults: { _controller: NiveauBundle:Niveau:editLevel }
+
+deleteLevel:
+    path: /deleteLevel/{id}
+    defaults: { _controller: NiveauBundle:Niveau:deleteLevel }

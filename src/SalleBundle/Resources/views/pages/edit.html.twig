@@ -1,0 +1,80 @@
+{% extends 'Template.html.twig' %}
+
+
+{% block body%}
+
+
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Salles</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Salles</a></li>
+              <li class="breadcrumb-item active">Modification</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+        <!-- /.content-header -->
+    <section class="content">
+    	<div class="container-fluid">
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Modification d'une salle : {{ salle.label }} - {{ salle.type }}</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                  {{ form_start(form) }}
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Libellé :</label>
+                      <input type="text" id="form_label" value="{{ salle.label }}" name="form[label]" class="form-control" placeholder="Saisir le libellé">
+                    </div>
+                   <!-- <div class="form-group">
+                      <label for="exampleInputEmail1">Type :</label>
+                      <select class="form-control" placeholder="Saisir le type" id="form_type" name="form[type]" >
+                        <option value=""></option>
+                        <option value="labo">labo</option>
+                        <option value="amphi">amphi</option>
+                        <option value="salle">salle</option>
+                      </select>
+                    </div>-->
+                    <div class="form-group">
+                      <label>Type :</label>
+                      <select class="form-control" name="form[type]" value="{{ salle.type }}">
+                        <option>Merci de sélectionner le type</option>
+                        <option value="labo" {{ salle.type == 'labo' ? 'selected' : '' }}>Labo</option>
+                        <option value="amphi" {{ salle.type == 'amphi' ? 'selected' : '' }}>Amphi</option>
+                        <option value="salle" {{ salle.type == 'salle' ? 'selected' : '' }}>Salle</option>
+                      </select>
+                    </div>
+                  <!-- /.card-body -->
+
+                  <div class="card-footer">
+                    <input type="reset" value="Annuler" class="btn btn-danger">
+                    <input type="submit" value="Valider" name="form[save]" class="btn btn-primary float-right">
+                    <input type="hidden" name="form[_token]" value="{{ form._token.vars.value }}" />
+                  </div>
+                    {{ form_start(form) }}
+              </div>
+            </div>
+    	</div>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+    </section>
+  <!-- /.content-wrapper -->
+
+{%endblock%}
+
+
