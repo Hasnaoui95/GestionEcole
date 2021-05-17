@@ -1,3 +1,12 @@
+materiel:
+    resource: "@MaterielBundle/Resources/config/routing.yml"
+    prefix:   /Materiel
+
+
+emploie:
+    resource: "@EmploieBundle/Resources/config/routing.yml"
+    prefix:   /emploi
+
 niveau:
     resource: "@NiveauBundle/Resources/config/routing.yml"
     prefix:   /niveaux

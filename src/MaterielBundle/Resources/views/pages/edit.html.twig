@@ -11,12 +11,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Salles</h1>
+            <h1 class="m-0">Matériels</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Salles</a></li>
-              <li class="breadcrumb-item active">Ajout</li>
+              <li class="breadcrumb-item"><a href="#">Matériels</a></li>
+              <li class="breadcrumb-item active">Modification</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -30,35 +30,20 @@
             <div class="col-md-10">
               <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Ajout d'une nouvelle matériel</h3>
+                  <h3 class="card-title">Modifier Matériel : {{ materiel.designation }} - {{ materiel.quantite }}</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
                   {{ form_start(form) }}
                   <div class="card-body">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Libellé :</label>
-                      <input type="text" id="form_label" name="form[label]" class="form-control" placeholder="Saisir le libellé">
+                      <label for="exampleInputEmail1">Désignation :</label>
+                      <input type="text" id="form_label" value="{{ materiel.designation }}" name="form[designation]" class="form-control" placeholder="Saisir la designation">
                     </div>
-                   <!-- <div class="form-group">
-                      <label for="exampleInputEmail1">Type :</label>
-                      <select class="form-control" placeholder="Saisir le type" id="form_type" name="form[type]" >
-                        <option value=""></option>
-                        <option value="labo">labo</option>
-                        <option value="amphi">amphi</option>
-                        <option value="salle">salle</option>
-                      </select>
-                    </div>-->
                     <div class="form-group">
-                      <label>Type :</label>
-                      <select class="form-control" name="form[type]">
-                        <option>Merci de sélectionner le type</option>
-                        <option value="labo">Labo</option>
-                        <option value="amphi">Amphi</option>
-                        <option value="salle">Salle</option>
-                      </select>
+                      <label for="exampleInputEmail1">Quantité :</label>
+                      <input type="text" id="form_quantite" value="{{ materiel.quantite }}" name="form[quantite]" class="form-control" placeholder="Saisir la designation">
                     </div>
-                  <!-- /.card-body -->
 
                   <div class="card-footer">
                     <input type="reset" value="Annuler" class="btn btn-danger">

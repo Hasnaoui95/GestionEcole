@@ -1,0 +1,16 @@
+materiel_homepage:
+    path:     /
+    defaults: { _controller: MaterielBundle:Materiel:list }
+
+materielCreate:
+    path:     /create
+    defaults: { _controller: MaterielBundle:Materiel:create }
+
+materielEdit:
+    path:     /materieledit/{id}
+    defaults: { _controller: MaterielBundle:Materiel:edit }
+
+materielDelete:
+    path: /delete/{id}
+    defaults: { _controller: MaterielBundle:Materiel:delete }
+

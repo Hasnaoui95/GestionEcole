@@ -112,4 +112,5 @@ class SalleController extends Controller
             ]
         );
     }
+
 }

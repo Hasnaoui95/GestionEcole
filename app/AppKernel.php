@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new UtilisateurBundle\UtilisateurBundle(),
             new SalleBundle\SalleBundle(),
             new NiveauBundle\NiveauBundle(),
+            new EmploiBundle\EmploieBundle(),
+            new MaterielBundle\MaterielBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
