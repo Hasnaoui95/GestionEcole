@@ -1,0 +1,15 @@
+matiere_homepage:
+    path:     /
+    defaults: { _controller: MatiereBundle:Matiere:list }
+
+matiereCreate:
+    path:     /create
+    defaults: { _controller: MatiereBundle:Matiere:create }
+
+matiereedit:
+    path:     /matiereedit/{id}
+    defaults: { _controller: MatiereBundle:Matiere:edit }
+
+matieredelete:
+    path: /matieredelete/{id}
+    defaults: { _controller: MatiereBundle:Matiere:delete }

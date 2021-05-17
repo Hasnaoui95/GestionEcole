@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new UtilisateurBundle\UtilisateurBundle(),
             new SalleBundle\SalleBundle(),
             new NiveauBundle\NiveauBundle(),
+            new MatiereBundle\MatiereBundle(),
             new EmploiBundle\EmploieBundle(),
             new MaterielBundle\MaterielBundle(),
         ];
