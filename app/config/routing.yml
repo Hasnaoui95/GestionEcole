@@ -1,3 +1,7 @@
+matiere:
+    resource: "@MatiereBundle/Resources/config/routing.yml"
+    prefix:   /matiere
+
 niveau:
     resource: "@NiveauBundle/Resources/config/routing.yml"
     prefix:   /niveaux
