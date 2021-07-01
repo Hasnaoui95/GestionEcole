@@ -155,5 +155,10 @@ class Utilisateur
     {
         return $this->sexe;
     }
+
+    public function getNomPrenom()
+    {
+        return $this->nom+' '+$this->prenom;
+    }
 }
 

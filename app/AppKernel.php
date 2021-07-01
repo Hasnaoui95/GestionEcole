@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new MatiereBundle\MatiereBundle(),
             new EmploiBundle\EmploieBundle(),
             new MaterielBundle\MaterielBundle(),
+            new SeancesBundle\SeancesBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

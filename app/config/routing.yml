@@ -1,3 +1,7 @@
+seances:
+    resource: "@SeancesBundle/Resources/config/routing.yml"
+    prefix:   /Seance
+
 materiel:
     resource: "@MaterielBundle/Resources/config/routing.yml"
     prefix:   /Materiel
