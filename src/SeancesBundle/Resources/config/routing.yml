@@ -1,0 +1,15 @@
+seances_homepage:
+    path:     /
+    defaults: { _controller: SeancesBundle:Seance:liste }
+
+SeancesCreate:
+    path:     /Seances/create
+    defaults: { _controller: SeancesBundle:Seance:create }
+
+
+SeancesDelete:
+        path: /delete/{id}
+        defaults: { _controller: SeancesBundle:Seance:delete }
+
+
+

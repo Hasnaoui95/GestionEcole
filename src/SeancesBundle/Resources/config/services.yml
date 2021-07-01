@@ -1,0 +1,4 @@
+services:
+#    seances.example:
+#        class: SeancesBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
