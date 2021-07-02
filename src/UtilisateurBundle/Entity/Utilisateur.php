@@ -35,6 +35,7 @@ class Utilisateur
      */
     private $prenom;
 
+
     /**
      * @var \DateTime
      *
@@ -158,7 +159,8 @@ class Utilisateur
 
     public function getNomPrenom()
     {
-        return $this->nom+' '+$this->prenom;
+
+        return $this->getNom().' '.$this->getPrenom();
     }
 }
 

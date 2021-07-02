@@ -43,7 +43,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="index3.html" class="nav-link">Accueil</a>
       </li>
     </ul>
 
@@ -168,7 +168,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{ path('utilisateurs') }}" class="nav-link active">
+            <a href="{{ path('utilisateurs') }}" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Utilisateurs
@@ -187,8 +187,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-university"></i>
+            <a href="{{ path('niveau_homepage') }}" class="nav-link">
+              <i class="nav-icon fas fa-chalkboard-teacher"></i>
               <p>
                 Classes
                 <i class="fas fa-angle-right right"></i>
@@ -204,27 +204,19 @@
               </p>
             </a>
           </li>
+
           <li class="nav-item">
-            <a href="{{ path('niveau_homepage') }}" class="nav-link">
-              <i class="nav-icon fas fa-user-graduate"></i>
+            <a href="{{ path('seances_homepage') }}" class="nav-link">
+              <i class="nav-icon fas fa-clock"></i>
               <p>
-                Niveau
-                <i class="fas fa-angle-right right"></i>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>
-                Seances
+                Séances
                 <i class="fas fa-angle-right right"></i>
               </p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ path('matiere_homepage') }}" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
+              <i class="nav-icon fas fa-book-open"></i>
               <p>
                 Matières
                 <i class="fas fa-angle-right right"></i>
@@ -234,7 +226,7 @@
 
           <li class="nav-item">
             <a href="{{ path('materiel_homepage') }}"  class="nav-link">
-              <i class="nav-icon fas fa-cog"></i>
+              <i class="nav-icon fas fa-laptop"></i>
               <p>
                 Matériels
                 <i class="fas fa-angle-right right"></i>

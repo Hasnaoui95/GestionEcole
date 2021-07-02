@@ -19,6 +19,7 @@ class SeanceType extends AbstractType
         $builder
             ->add('jour', ChoiceType::class, [
                 'choices'  => [
+                    'Choisissez un Jour...'=>'choisir',
                     'Lundi' => 'Lundi',
                     'Mardi' => 'Mardi',
                     'Mercredi' => 'Mercredi',
@@ -26,40 +27,55 @@ class SeanceType extends AbstractType
                     'Vendredi' => 'Vendredi',
                     'Samedi' => 'Samedi'
                 ],'attr'=>array('class'=>'form-control')])
-            ->add('numSeance', ChoiceType::class, [
+            ->add('numSeance', ChoiceType::class,
+                [
                 'choices'  => [
-                    'S1' => 'S1',
-                    'S2' => 'S2',
-                    'S3' => 'S3',
-                    'S4' => 'S4'
-                ],'attr'=>array('class'=>'form-control')])
+                    'Choisissez une Séance...'=>'choice',
+                    '8h00 - 10h00'=>[
+                    'S1' => 'S1'],
+                    '10h00 - 12h00'=>[
+                    'S2' => 'S2'],
+                    '13h00 - 15h00'=>[
+                    'S3' => 'S3'],
+                    '15h0 - 17h00'=>[
+                    'S4' => 'S4']
+                ],
+                    'label'=>'Séance',
+                    'attr'=>array('class'=>'form-control')]
+            )
+
             ->add('matiere',EntityType::class,
-                array('class'=>'MatiereBundle\Entity\Matiere',
-                'attr'=>array('class'=>'form-control'),
+                   array(
+                    'class'=>'MatiereBundle\Entity\Matiere',
                     'choice_label'=>'libelle',
-                    'expanded'=>false,
-                    'multiple'=>false
+                   'attr'=>array('class'=>'form-control'),
+                    'label'=>'Matière',
+                       'placeholder' => 'Choisissez une Matière...',
                 ))
             ->add('classe',EntityType::class,
                 array('class'=>'NiveauBundle\Entity\Niveau',
                     'attr'=>array('class'=>'form-control'),
                     'choice_label'=>'label',
                     'expanded'=>false,
-                    'multiple'=>false
+                    'multiple'=>false,
+                    'placeholder' => 'Choisissez une Classe...',
                 ))
             ->add('prof',EntityType::class,
                 array('class'=>'UtilisateurBundle\Entity\Utilisateur',
                     'attr'=>array('class'=>'form-control'),
-                    'choice_label'=>'nom',
+                    'choice_label'=>'NomPrenom',
                     'expanded'=>false,
-                    'multiple'=>false
+                    'multiple'=>false,
+                    'placeholder' => 'Choisissez un/une Prof...',
                 ))
+
             ->add('Salle',EntityType::class,
                 array('class'=>'SalleBundle\Entity\Salle',
                     'attr'=>array('class'=>'form-control'),
                     'choice_label'=>'label',
                     'expanded'=>false,
-                    'multiple'=>false
+                    'multiple'=>false,
+                    'placeholder' => 'Choisissez une Salle...',
                 ))
 
             ;
