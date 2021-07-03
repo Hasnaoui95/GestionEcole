@@ -29,33 +29,39 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                              <p> <h1 class="card-title">Niveau :  </h1>
-
+                                <p> <h1 class="card-title"></h1>
+                                {{ form_start(form) }}
+                                {{ form(form) }}
+                                {{ form_start(form) }}
                             </div>
                             <div class="card-body">
                                 <table class="table">
                                     <thead style="background-color: #ADD8E6">
                                     <tr>
                                         <th style="width: 10%">Horaire</th>
-                                        <th class="text-center">Lundi</th>
-                                        <th class="text-center">Mardi</th>
-                                        <th class="text-center">Mercredi</th>
-                                        <th class="text-center">Jeudi</th>
-                                        <th class="text-center">Vendredi</th>
-                                        <th class="text-center">Samedi</th>
+                                        <th class="text-center" style="border-right: 1px solid #dee2e6;width:80px">Lundi</th>
+                                        <th class="text-center" style="border-right: 1px solid #dee2e6;width:80px">Mardi</th>
+                                        <th class="text-center" style="border-right: 1px solid #dee2e6;width:80px">Mercredi</th>
+                                        <th class="text-center" style="border-right: 1px solid #dee2e6;width:80px">Jeudi</th>
+                                        <th class="text-center" style="border-right: 1px solid #dee2e6;width:80px">Vendredi</th>
+                                        <th class="text-center" style="border-right: 1px solid #dee2e6;width:80px">Samedi</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
 
-                                    {% for i in 1..4 %}
-                                    <tr>   <td style="background-color: #ADD8E6"><b>Séance {{  i }}<br></b></td>
-                                        {% for j in 0..5 %}
-                                            <td ></td>
+                                        <tbody>
+                                        {%for u in S1 %}
+                                            <tr>
+                                            <tr>
+                                                <td style="background-color: #ADD8E6"><b>Séance {{  loop.index }}</td>
+                                                <td class="text-center" style="border-right: 1px solid #dee2e6;width:80px;    font-size: 13px;">{{u.monday}}</td>
+                                                <td class="text-center" style="border-right: 1px solid #dee2e6; width:80px;   font-size: 13px;">{{u.tuesday}}</td>
+                                                <td class="text-center" style="border-right: 1px solid #dee2e6; width:80px;   font-size: 13px;">{{u.wednesday}}</td>
+                                                <td class="text-center" style="border-right: 1px solid #dee2e6; width:80px;   font-size: 13px;">{{u.thursday}}</td>
+                                                <td class="text-center" style="border-right: 1px solid #dee2e6; width:80px;   font-size: 13px;">{{u.friday}}</td>
+                                                <td class="text-center" style="border-right: 1px solid #dee2e6; width:80px;   font-size: 13px;">{{u.saturday}}</td>
+                                            </tr>
                                         {% endfor %}
-                                    {% endfor %}
-
-                                    </tr>
-                                    </tbody>
+                                        </tbody>
                                 </table>
                             </div>
                         </div>
