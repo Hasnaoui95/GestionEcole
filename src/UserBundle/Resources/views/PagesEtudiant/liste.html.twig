@@ -1,0 +1,85 @@
+{% extends 'Template.html.twig' %}
+{% block temp %}
+{% endblock %}
+
+{% block body%}
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (pages header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Etudiant</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Etudiant</a></li>
+                            <li class="breadcrumb-item active">Liste</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Liste des etudiants</h3>
+                                <div class="card-tools">
+                                    <div class="pull-right">
+                                        <a href="{{ path('user_etudiant_create') }}" class="btn btn-block bg-gradient-success"> Create </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 10px">Id</th>
+                                        <th class="text-center">Nom</th>
+                                        <th class="text-center">Prenom</th>
+                                        <th class="text-center">Email</th>
+                                        <th class="text-center">Username</th>
+                                        <th class="text-center">Classe</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {%for u in users %}
+                                        <tr>
+                                            <td class="text-center">{{u.id}}</td>
+                                            <td class="text-center">{{u.nom}}</td>
+                                            <td class="text-center">{{u.prenom}}</td>
+                                            <td class="text-center">{{u.email}}</td>
+                                            <td class="text-center">{{u.username}}</td>
+                                            <td class="text-center">{{u.classe.label}}</td>
+                                            <td class="text-center">
+                                                <div class="btn-group btn-group-sm">
+                                                    <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>&nbsp;&nbsp;
+                                                    <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                                    <a href="{{ path('user_etudiant_delete', {'id': u.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+
+
+{% endblock %}

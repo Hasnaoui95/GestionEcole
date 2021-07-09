@@ -1,0 +1,36 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:index }
+
+users_admin:
+    path:     /usersAdmin
+    defaults: { _controller: UserBundle:Admin:liste }
+
+user_admin_create:
+    path:     /usersAdmin/create
+    defaults: { _controller: UserBundle:Admin:create }
+user_admin_delete:
+    path: /usersAdmin/delete/{id}
+    defaults: { _controller: UserBundle:Admin:delete }
+
+users_enseignant:
+    path:     /usersEnseignant
+    defaults: { _controller: UserBundle:Enseignant:liste }
+
+user_enseignant_create:
+    path:     /usersEnseignant/create
+    defaults: { _controller: UserBundle:Enseignant:create }
+user_enseignant_delete:
+    path: /userEnseigant/delete/{id}
+    defaults: { _controller: UserBundle:Enseignant:delete }
+
+users_etudiant:
+    path:     /usersEtudiant
+    defaults: { _controller: UserBundle:Etudiant:liste }
+
+user_etudiant_create:
+    path:     /usersEtudiant/create
+    defaults: { _controller: UserBundle:Etudiant:create }
+user_etudiant_delete:
+    path: /usersEtudiant/delete/{id}
+    defaults: { _controller: UserBundle:Etudiant:delete }

@@ -121,7 +121,7 @@
           <!-- Menu Footer-->
           <li class="user-footer">
             <a href="#" class="btn btn-default btn-flat">Profile</a>
-            <a href="#" class="btn btn-default btn-flat float-right">Sign out</a>
+            <a href="{{ path('app_logout') }}" class="btn btn-default btn-flat float-right">Sign out</a>
           </li>
         </ul>
       </li>
@@ -168,17 +168,37 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{ path('utilisateurs') }}" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Utilisateurs
                 <i class="fas fa-angle-right right"></i>
               </p>
             </a>
-            
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ path('users_admin') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Administrateurs</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ path('users_enseignant') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Enseignant</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ path('users_etudiant') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Etudiants</p>
+                </a>
+              </li>
+
+            </ul>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Emplois
@@ -239,8 +259,19 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+  {% block temp %}
+  <div class="content-wrapper">
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <H1>Welcome to App !!!</H1>
+        </div>
+      </div>
+    </section>
+  </div>
 
-  
+
+  {% endblock %}
     {% block body%}
     {% endblock %}
 
