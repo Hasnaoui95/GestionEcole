@@ -174,5 +174,10 @@ class User  extends BaseUser
         parent::__construct();
         // your own logic
     }
+    public function getNomPrenom()
+    {
+
+        return $this->getNom().' '.$this->getPrenom();
+    }
 }
 

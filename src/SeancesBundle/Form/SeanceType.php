@@ -2,6 +2,7 @@
 
 namespace SeancesBundle\Form;
 
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -61,12 +62,19 @@ class SeanceType extends AbstractType
                     'placeholder' => 'Choisissez une Classe...',
                 ))
             ->add('prof',EntityType::class,
-                array('class'=>'UtilisateurBundle\Entity\Utilisateur',
+                array('class'=>'UserBundle\Entity\User',
                     'attr'=>array('class'=>'form-control'),
                     'choice_label'=>'NomPrenom',
                     'expanded'=>false,
                     'multiple'=>false,
                     'placeholder' => 'Choisissez un/une Prof...',
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('u')
+                            ->where('u.Role=?1')
+                            ->setParameter(1, '2')
+
+                           ;
+                },
                 ))
 
             ->add('Salle',EntityType::class,

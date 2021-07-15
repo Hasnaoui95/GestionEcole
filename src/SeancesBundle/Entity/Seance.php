@@ -5,6 +5,7 @@ namespace SeancesBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use SalleBundle\Controller\DefaultController;
 use SalleBundle\Entity\Salle;
+use UserBundle\Entity\User;
 
 /**
  * Seance
@@ -60,9 +61,9 @@ class Seance
 
 
     /**
-     * @var Utilisateur
+     * @var User
      *
-     * @ORM\ManyToOne(targetEntity="UtilisateurBundle\Entity\Utilisateur")
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
      */
     private $prof;
 
@@ -176,7 +177,7 @@ class Seance
     /**
      * Set prof
      *
-     * @param Utilisateur $prof
+     * @param User $prof
      *
      * @return Seance
      */
@@ -190,12 +191,11 @@ class Seance
     /**
      * Get prof
      *
-     * @return Utilisateur
+     * @return User
      */
     public function getProf()
     {
-        return $this->prof;
-    }
+        return $this->prof;}
 
 
     /**

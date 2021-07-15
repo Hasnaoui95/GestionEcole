@@ -152,6 +152,7 @@ class Utilisateur
      *
      * @return int
      */
+
     public function getSexe()
     {
         return $this->sexe;
