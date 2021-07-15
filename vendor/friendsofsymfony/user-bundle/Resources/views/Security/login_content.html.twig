@@ -1,23 +1,130 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>G.Ecole | Accueil</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('bundles/plugins/fontawesome-free/css/all.min.css')}}">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="{{ asset('bundles/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{{ asset('bundles/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="{{ asset('bundles/plugins/jqvmap/jqvmap.min.css')}}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('bundles/dist/css/adminlte.min.css')}}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{ asset('bundles/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{{ asset('bundles/plugins/daterangepicker/daterangepicker.css')}}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('bundles/plugins/summernote/summernote-bs4.min.css')}}">
+    <style>
+        :target {
+            background-color: #ff0000 !important;
+        }
+    </style>
+</head>
+<body class="hold-transition login-page">
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
+<div class="login-box">
+    <!-- /.login-logo -->
+    <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+            <a href="../../index2.html" class="h1">Gestion D'Ecole</a><br>
+        </div>
+        <div class="card-body">
+            <p class="login-box-msg">Sign in to start your session</p>
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    {% if csrf_token %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    {% endif %}
+            <form action="{{ path("fos_user_security_check") }}" method="post">
+                {% if csrf_token %}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                {% endif %}
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" placeholder="Username"/>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" id="password" name="_password" required="required" autocomplete="current-password" placeholder="Password"/>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="icheck-primary">
+                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                            <label for="remember">
+                                Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-4">
+                        <input type="submit" class="btn btn-primary btn-block" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+            <!-- /.social-auth-links -->
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+            <p class="mb-1">
+                <a href="{{ path('fos_user_resetting_request') }}">I forgot my password</a>
+            </p>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+</body>
 
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+<!-- jQuery -->
+<script src="{{ asset('bundles/plugins/jquery/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('bundles/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('bundles/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- ChartJS -->
+<script src="{{ asset('bundles/plugins/chart.js/Chart.min.js')}}"></script>
+<!-- Sparkline -->
+<script src="{{ asset('bundles/plugins/sparklines/sparkline.js')}}"></script>
+<!-- JQVMap -->
+<script src="{{ asset('bundles/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+<script src="{{ asset('bundles/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{ asset('bundles/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+<!-- daterangepicker -->
+<script src="{{ asset('bundles/plugins/moment/moment.min.js')}}"></script>
+<script src="{{ asset('bundles/plugins/daterangepicker/daterangepicker.js')}}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{ asset('bundles/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<!-- Summernote -->
+<script src="{{ asset('bundles/plugins/summernote/summernote-bs4.min.js')}}"></script>
+<!-- overlayScrollbars -->
+<script src="{{ asset('bundles/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('bundles/dist/js/adminlte.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('bundles/dist/js/demo.js')}}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ asset('bundles/dist/js/pages/dashboard.js')}}"></script>
+</body>
+</html>
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-    
-</form>

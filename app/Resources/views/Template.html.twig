@@ -106,7 +106,7 @@
       <li class="nav-item dropdown user-menu">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
           <img src="{{ asset('bundles/dist/img/avatar5.png')}}" class="user-image img-circle elevation-2" alt="User Image">
-          <span class="d-none d-md-inline">Hasnaoui Mohamed</span>
+          <span class="d-none d-md-inline">{{ app.user.prenom }} {{ app.user.nom }}</span>
         </a>
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <!-- User image -->
@@ -179,13 +179,13 @@
               <li class="nav-item">
                 <a href="{{ path('users_admin') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Administrateurs</p>
+                  <p>Administraurs</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ path('users_enseignant') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Enseignant</p>
+                  <p>Enseignants</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -194,11 +194,9 @@
                   <p>Etudiants</p>
                 </a>
               </li>
-
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
             <a href="{{ path('emploie_homepage') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
