@@ -6,12 +6,19 @@ users_admin:
     path:     /usersAdmin
     defaults: { _controller: UserBundle:Admin:liste }
 
+user_admin_edit:
+    path:     /usersAdmin/edit/{id}
+    defaults: { _controller: UserBundle:Admin:edit }
+
 user_admin_create:
     path:     /usersAdmin/create
     defaults: { _controller: UserBundle:Admin:create }
+
 user_admin_delete:
     path: /usersAdmin/delete/{id}
     defaults: { _controller: UserBundle:Admin:delete }
+
+
 
 users_enseignant:
     path:     /usersEnseignant
@@ -20,9 +27,15 @@ users_enseignant:
 user_enseignant_create:
     path:     /usersEnseignant/create
     defaults: { _controller: UserBundle:Enseignant:create }
+
 user_enseignant_delete:
     path: /userEnseigant/delete/{id}
     defaults: { _controller: UserBundle:Enseignant:delete }
+
+user_enseignant_edit:
+    path: /userEnseigant/edit/{id}
+    defaults: { _controller: UserBundle:Enseignant:edit }
+
 
 users_etudiant:
     path:     /usersEtudiant
@@ -31,6 +44,12 @@ users_etudiant:
 user_etudiant_create:
     path:     /usersEtudiant/create
     defaults: { _controller: UserBundle:Etudiant:create }
+
 user_etudiant_delete:
     path: /usersEtudiant/delete/{id}
     defaults: { _controller: UserBundle:Etudiant:delete }
+
+user_etudiant_edit:
+    path: /usersEtudiant/edit/{id}
+    defaults: { _controller: UserBundle:Etudiant:edit }
+

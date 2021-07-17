@@ -33,7 +33,7 @@
                                 <h3 class="card-title">Liste des administrateurs</h3>
                                 <div class="card-tools">
                                     <div class="pull-right">
-                                        <a href="{{ path('user_admin_create') }}" class="btn btn-block bg-gradient-success"> Create </a>
+                                        <a href="{{ path('user_admin_create') }}" class="btn btn-block bg-gradient-success"> Ajouter </a>
                                     </div>
                                 </div>
                             </div>
@@ -59,8 +59,8 @@
                                             <td class="text-center">{{u.username}}</td>
                                             <td class="text-center">
                                                 <div class="btn-group btn-group-sm">
-                                                    <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>&nbsp;&nbsp;
-                                                    <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+
+                                                    <a href="{{ path('user_admin_edit', {'id': u.id}) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
                                                     <a href="{{ path('user_admin_delete', {'id': u.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                                 </div>
                                             </td>

@@ -2,6 +2,7 @@
 
 namespace UserBundle\Controller;
 
+use MaterielBundle\Entity\Materiel;
 use SeancesBundle\Entity\Seance;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -40,7 +41,7 @@ class AdminController extends Controller
             ->add('prenom',TextType::Class,array())
             ->add('email',TextType::Class,array())
             ->add('password',PasswordType::Class,array())
-            ->add('save',SubmitType::Class,array('label'=>'Create user','attr'=>array('class'=>'form-control')))
+            ->add('save',SubmitType::Class,array('label'=>'Modifier user','attr'=>array('class'=>'form-control')))
             ->getForm();
         $form->handleRequest($request);
 
@@ -85,5 +86,46 @@ class AdminController extends Controller
         $entityManager->flush();
 
         return $this->redirectToRoute("users_admin");
+    }
+
+
+    public function editAction(Request $request, int $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $user = $entityManager->getRepository(User::class)->find($id);
+        $form=$this->createFormBuilder($user)
+            ->add('username',TextType::Class,array())
+            ->add('nom',TextType::Class,array())
+            ->add('prenom',TextType::Class,array())
+            ->add('email',TextType::Class,array())
+            ->add('password',PasswordType::Class,array())
+            ->add('save',SubmitType::Class,array('label'=>'Modifier user','attr'=>array('class'=>'form-control')))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if($form->get('save')->isClicked() && $form->isValid()){
+            $username=$form['username']->getData();
+            $nom=$form['nom']->getData();
+            $prenom=$form['prenom']->getData();
+            $email=$form['email']->getData();
+            $password=$form['password']->getData();
+
+            $user->getUsername($username);
+            $user->getNom($nom);
+            $user->getPrenom($prenom);
+            $user->getEmail($email);
+            $user->getPassword($password);
+
+            $em= $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            $this->addFlash('message','room created successfully');
+            return $this->redirectToRoute('users_admin');
+        }
+        return $this->render('UserBundle:PagesAdmin:edit.html.twig',[
+                'form'=>$form->createView(), 'user' => $user
+            ]
+        );
     }
 }

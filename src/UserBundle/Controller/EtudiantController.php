@@ -46,8 +46,43 @@ class EtudiantController extends Controller
 
             return $this->redirectToRoute('users_etudiant');
         }
-        return $this->render('UserBundle:PagesEtudiant:create1.html.twig',[
+        return $this->render('UserBundle:PagesEtudiant:create.html.twig',[
                 'form'=>$form->createView()
+            ]
+        );
+    }
+
+    public function editAction(Request $request, int $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $user = $entityManager->getRepository(User::class)->find($id);
+        $form=$this->createForm(EtudiantType::class,$user);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $username=$form['username']->getData();
+            $nom=$form['nom']->getData();
+            $prenom=$form['prenom']->getData();
+            $email=$form['email']->getData();
+            $password=$form['password']->getData();
+            $classe=$form['classe']->getData();
+
+            $user->getUsername($username);
+            $user->getNom($nom);
+            $user->getPrenom($prenom);
+            $user->getEmail($email);
+            $user->getPassword($password);
+            $user->getClasse($classe);
+
+            $em= $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            $this->addFlash('message','room created successfully');
+            return $this->redirectToRoute('users_etudiant');
+        }
+        return $this->render('UserBundle:PagesEtudiant:edit.html.twig',[
+                'form'=>$form->createView(), 'user' => $user
             ]
         );
     }
