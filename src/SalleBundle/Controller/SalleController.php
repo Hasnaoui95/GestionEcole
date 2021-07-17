@@ -58,7 +58,7 @@ class SalleController extends Controller
             $this->addFlash('message','room created successfully');
             return $this->redirectToRoute('salle_homepage');
         }
-        return $this->render('SalleBundle:pages:create.html.twig',[
+        return $this->render('SalleBundle:pages:create1.html.twig',[
                 'form'=>$form->createView()
             ]
         );

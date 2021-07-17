@@ -46,7 +46,7 @@ class EtudiantController extends Controller
 
             return $this->redirectToRoute('users_etudiant');
         }
-        return $this->render('UserBundle:PagesEtudiant:create.html.twig',[
+        return $this->render('UserBundle:PagesEtudiant:create1.html.twig',[
                 'form'=>$form->createView()
             ]
         );

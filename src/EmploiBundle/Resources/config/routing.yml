@@ -1,6 +1,0 @@
-emploie_homepage:
-    path:     /
-    defaults: { _controller: EmploieBundle:Default:index }
-emploi:
-    path:     /{id}
-    defaults: { _controller: EmploieBundle:Default:emploi }

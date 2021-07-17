@@ -1,6 +1,6 @@
 <?php
 
-namespace EmploiBundle\Controller;
+namespace EmploieBundle\Controller;
 
 use SalleBundle\Entity\Salle;
 use SeancesBundle\Entity\Seance;
@@ -9,7 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use NiveauBundle\Entity\Niveau;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
-use EmploiBundle\utils\EmploiItem;
+use EmploieBundle\utils\EmploiItem;
 
 class DefaultController extends Controller
 {
@@ -29,8 +29,6 @@ class DefaultController extends Controller
         $form->handleRequest($request);
         if($form->get('save')->isClicked() && $form->isValid()){
             $niveauID=$form['Niveau:']->getData()->getID();
-            echo "niveau";
-            echo $niveauID;
             return $this->redirectToRoute('emploi', array('id' => $niveauID));
         }
        return $this->render('EmploieBundle:pages:EmploiEtudiantHome.html.twig',[
@@ -44,26 +42,16 @@ class DefaultController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
         $niveau = $entityManager->getRepository(Niveau::class)->find($id);
         $seances  = $entityManager->getRepository(Seance::class)->findBy(array('classe' => $id));
-        $s2 = [];
-        $s3 = [];
-        $s4 = [];
+
         $item1 = new EmploiItem();
         $item2 = new EmploiItem();
         $item3 = new EmploiItem();
         $item4 = new EmploiItem();
         for($i=0;$i<count($seances);$i++) {
-            /* echo $seances[$i]->getNumSeance();
-            echo $seances[$i]->getJour();
-            echo $seances[$i]->getMatiere()->getLibelle();
-            echo $seances[$i]->getProf()->getNom();
-            echo $seances[$i]->getProf()->getPrenom();*/
+
             $seanceDetail = $seances[$i]->getMatiere()->getLibelle().'-'.$seances[$i]->getProf()->getNom(). ' '. $seances[$i]->getProf()->getPrenom()
             . ' ' . $seances[$i]->getSalle()->getLabel();
-          // echo $seanceDetail;
 
-
-            // $item->setDetail($seanceDetail);
-            // $item->setJour($seances[$i]->getJour());
 
             if ($seances[$i]->getNumSeance() == 'S1') {
                 // array_push($s1, new EmploiItem($seances[$i]->getJour(), $seanceDetail));
@@ -117,46 +105,6 @@ class DefaultController extends Controller
         }
         $s = [$item1, $item2, $item3, $item4];
 
-        // S1
-        /*$s1 = array_filter($seances, function ($var) {
-            return ($var->getNumSeance() == 1);
-        });
-        echo $s1[0]->getDetail();
-        //echo "******** S1 \n";
-        //echo count($s1);
-        for($i=0;$i<count($s1);$i++) {
-            echo $s1[$i]->getJour();
-            echo $s1[$i]->getDetail();
-        }
-
-        echo "******** S2 \n";
-
-        echo count($s2);
-        echo "--";
-        for($i=0;$i<count($s2);++$i) {
-            echo $s2[$i]->getJour();
-            echo $s2[$i]->getDetail();
-            echo $i;
-            echo "--";
-
-        }
-        // S3
-        echo "******** S3 \n";
-       for($i=0;$i<count($s3);$i++) {
-            echo $s3[$i]->getJour();
-            echo $s3[$i]->getDetail();
-
-        }
-        // S4
-        echo "******** S4 \n";
-        for($i=0;$i<count($s4);$i++) {
-            echo $s4[$i]->getJour();
-            echo $s4[$i]->getDetail();
-
-        }*/
-
-
-        echo $niveau->getLabel();
         $form=$this->createFormBuilder()->add('Niveau:',EntityType::class,
             array('class'=>'NiveauBundle\Entity\Niveau',
                 'attr'=>array('label'=>'form-control', 'class'=>'form-control'),
@@ -171,8 +119,6 @@ class DefaultController extends Controller
         $form->handleRequest($request);
         if($form->get('save')->isClicked() && $form->isValid()){
             $niveauID=$form['Niveau:']->getData()->getID();
-            echo "niveau";
-            echo $niveauID;
             return $this->redirectToRoute('emploi', array('id' => $niveauID));
         }
         return $this->render('EmploieBundle:pages:EmploiEtudiant.html.twig',[

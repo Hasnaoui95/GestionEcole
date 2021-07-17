@@ -25,32 +25,8 @@ class DefaultController extends Controller
     public function accueilAction()
     {
         // replace this example code with whatever you need
-        return $this->render('Template.html.twig'
+        return $this->render('Base.html.twig'
 
         );
-    }
-
-    /**
-     * @Route("/ajoutUser", name="AjoutUser")
-     */
-    public function ajoutAction(){
-
-        $user = new User();
-        $em= $this->getDoctrine()->getManager();
-
-        $user->setUsername('test');
-        $user->setEmail('test@gmail.com');
-        $user->setEnabled(1);
-
-        $currentPassword = '12345';
-        $encoder = $this->container->get('security.password_encoder');
-        $encodedPassword = $encoder->encodePassword($user, $currentPassword);
-        $user->setPassword($encodedPassword);
-        $em->persist($user);
-        $em->flush();
-        return $this->redirectToRoute('utilisateurs');
-
-
-
     }
 }

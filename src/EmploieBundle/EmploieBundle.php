@@ -1,6 +1,6 @@
 <?php
 
-namespace EmploiBundle;
+namespace EmploieBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

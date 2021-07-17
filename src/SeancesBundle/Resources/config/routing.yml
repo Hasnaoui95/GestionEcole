@@ -11,5 +11,6 @@ SeancesDelete:
         path: /delete/{id}
         defaults: { _controller: SeancesBundle:Seance:delete }
 
-
-
+SeanceSuivant:
+    path:     /Seance/suivant/{matid}/{clasid}
+    defaults: { _controller: SeancesBundle:Seance:suivant }

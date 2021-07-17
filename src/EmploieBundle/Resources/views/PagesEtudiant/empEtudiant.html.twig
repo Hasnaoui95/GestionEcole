@@ -1,0 +1,73 @@
+{% extends 'Template.html.twig' %}
+
+
+{% block body%}
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (pages header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Emploi Du Temps</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Utilisateurs</a></li>
+                            <li class="breadcrumb-item active">Liste</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                        <h5 class="text-center card-title">{{ app.user.classe.label }}</h5>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead style="background-color: #ADD8E6">
+                                    <tr>
+                                        <th style="width: 10%">Horaire</th>
+                                        <th class="text-center" style="border-right: 1px solid #dee2e6;width:80px">Lundi</th>
+                                        <th class="text-center" style="border-right: 1px solid #dee2e6;width:80px">Mardi</th>
+                                        <th class="text-center" style="border-right: 1px solid #dee2e6;width:80px">Mercredi</th>
+                                        <th class="text-center" style="border-right: 1px solid #dee2e6;width:80px">Jeudi</th>
+                                        <th class="text-center" style="border-right: 1px solid #dee2e6;width:80px">Vendredi</th>
+                                        <th class="text-center" style="border-right: 1px solid #dee2e6;width:80px">Samedi</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    {%for u in S1 %}
+                                        <tr>
+                                        <tr>
+                                            <td style="background-color: #ADD8E6"><b>Séance {{  loop.index }}</td>
+                                            <td class="text-center" style="border-right: 1px solid #dee2e6;width:80px;    font-size: 13px;">{{u.monday}}</td>
+                                            <td class="text-center" style="border-right: 1px solid #dee2e6; width:80px;   font-size: 13px;">{{u.tuesday}}</td>
+                                            <td class="text-center" style="border-right: 1px solid #dee2e6; width:80px;   font-size: 13px;">{{u.wednesday}}</td>
+                                            <td class="text-center" style="border-right: 1px solid #dee2e6; width:80px;   font-size: 13px;">{{u.thursday}}</td>
+                                            <td class="text-center" style="border-right: 1px solid #dee2e6; width:80px;   font-size: 13px;">{{u.friday}}</td>
+                                            <td class="text-center" style="border-right: 1px solid #dee2e6; width:80px;   font-size: 13px;">{{u.saturday}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+
+
+{% endblock %}

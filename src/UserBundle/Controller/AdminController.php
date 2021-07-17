@@ -71,7 +71,7 @@ class AdminController extends Controller
 
             return $this->redirectToRoute('users_admin');
         }
-        return $this->render('UserBundle:PagesAdmin:create.html.twig',[
+        return $this->render('UserBundle:PagesAdmin:create1.html.twig',[
                 'form'=>$form->createView()
             ]
         );

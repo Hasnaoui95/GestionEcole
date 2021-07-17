@@ -1,6 +1,6 @@
 <?php
 
-namespace EmploiBundle\utils;
+namespace EmploieBundle\utils;
 
 class EmploiItem {
 

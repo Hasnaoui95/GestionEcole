@@ -40,7 +40,7 @@ class NiveauController extends Controller
             $this->addFlash('message','level created successfully');
             return $this->redirectToRoute('niveau_homepage');
         }
-        return $this->render('NiveauBundle:pages:create.html.twig',[
+        return $this->render('NiveauBundle:pages:create1.html.twig',[
                 'form'=>$form->createView()
             ]
         );

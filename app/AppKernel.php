@@ -21,7 +21,7 @@ class AppKernel extends Kernel
             new SalleBundle\SalleBundle(),
             new NiveauBundle\NiveauBundle(),
             new MatiereBundle\MatiereBundle(),
-            new EmploiBundle\EmploieBundle(),
+            new EmploieBundle\EmploieBundle(),
             new MaterielBundle\MaterielBundle(),
             new SeancesBundle\SeancesBundle(),
             new FOS\UserBundle\FOSUserBundle(),

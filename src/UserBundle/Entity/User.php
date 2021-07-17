@@ -134,6 +134,7 @@ class User  extends BaseUser
         return $this->Role;
     }
 
+
     /**
      * @param Role $Role
      * @return User

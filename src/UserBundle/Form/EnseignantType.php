@@ -12,6 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EnseignantType extends AbstractType
 {
+
     /**
      * {@inheritdoc}
      */

@@ -57,7 +57,7 @@ class UtilisateurController extends Controller
     		$this->addFlash('message','user create successfully');
     		return $this->redirectToRoute('utilisateurs');
     	}
-        return $this->render('UtilisateurBundle:pages:create.html.twig',[
+        return $this->render('UtilisateurBundle:pages:create1.html.twig',[
             'form'=>$form->createView()
             ]
         );

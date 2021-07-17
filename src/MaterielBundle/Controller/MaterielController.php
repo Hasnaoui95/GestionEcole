@@ -42,7 +42,7 @@ class MaterielController extends Controller
             $this->addFlash('message','level created successfully');
             return $this->redirectToRoute('materiel_homepage');
         }
-        return $this->render('MaterielBundle:pages:create.html.twig',[
+        return $this->render('MaterielBundle:pages:create1.html.twig',[
                 'form'=>$form->createView()
             ]
         );

@@ -1,0 +1,16 @@
+
+EmploiEtudiant:
+    path:     /emploiEtudiant
+    defaults: { _controller: EmploieBundle:EmpEtudiant:empetudiant }
+
+EmploiEnseignant:
+    path:     /emploiEnseignant
+    defaults: { _controller: EmploieBundle:EmpEnseignant:empenseignant }
+
+emploie_homepage:
+    path:     /
+    defaults: { _controller: EmploieBundle:Default:index }
+
+emploi:
+    path:     /{id}
+    defaults: { _controller: EmploieBundle:Default:emploi }
