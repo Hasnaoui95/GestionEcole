@@ -42,10 +42,10 @@
                                     <thead>
                                     <tr>
                                         <th style="width: 10px">Id</th>
+                                        <th class="text-center">Username</th>
                                         <th class="text-center">Nom</th>
                                         <th class="text-center">Prenom</th>
                                         <th class="text-center">Email</th>
-                                        <th class="text-center">Username</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                     </thead>
@@ -53,10 +53,10 @@
                                     {%for u in users %}
                                         <tr>
                                             <td class="text-center">{{u.id}}</td>
+                                            <td class="text-center">{{u.username}}</td>
                                             <td class="text-center">{{u.nom}}</td>
                                             <td class="text-center">{{u.prenom}}</td>
                                             <td class="text-center">{{u.email}}</td>
-                                            <td class="text-center">{{u.username}}</td>
                                             <td class="text-center">
                                                 <div class="btn-group btn-group-sm">
 

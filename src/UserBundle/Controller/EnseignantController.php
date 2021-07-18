@@ -60,7 +60,8 @@ class EnseignantController extends Controller
     {
         $entityManager = $this->getDoctrine()->getManager();
         $user = $entityManager->getRepository(User::class)->find($id);
-        $form=$this->createForm(EnseignantType::class,$user);
+        $form=$this->createForm(EnseignantType::class,$user)
+            ;
 
         $form->handleRequest($request);
 
@@ -76,7 +77,9 @@ class EnseignantController extends Controller
             $user->getNom($nom);
             $user->getPrenom($prenom);
             $user->getEmail($email);
-            $user->getPassword($password);
+            $encoder = $this->container->get('security.password_encoder');
+            $encodedPassword = $encoder->encodePassword($user, $password);
+            $user->setPassword($encodedPassword);
             $user->getMatiere($matiere);
 
             $em= $this->getDoctrine()->getManager();

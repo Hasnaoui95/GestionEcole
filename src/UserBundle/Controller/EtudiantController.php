@@ -72,7 +72,9 @@ class EtudiantController extends Controller
             $user->getNom($nom);
             $user->getPrenom($prenom);
             $user->getEmail($email);
-            $user->getPassword($password);
+            $encoder = $this->container->get('security.password_encoder');
+            $encodedPassword = $encoder->encodePassword($user, $password);
+            $user->setPassword($encodedPassword);
             $user->getClasse($classe);
 
             $em= $this->getDoctrine()->getManager();

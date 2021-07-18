@@ -24,10 +24,9 @@ class DefaultController extends Controller
             'multiple'=>false,
             'placeholder' => 'Choisissez une Classe...',
         ))
-            ->add('save',SubmitType::Class,array('label'=>"Valider",'attr'=>array('class'=>'form-control')))
             ->getForm();
         $form->handleRequest($request);
-        if($form->get('save')->isClicked() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid()){
             $niveauID=$form['Niveau:']->getData()->getID();
             return $this->redirectToRoute('emploi', array('id' => $niveauID));
         }
@@ -113,11 +112,11 @@ class DefaultController extends Controller
                 'expanded'=>false,
                 'multiple'=>false,
                 'placeholder' => 'Choisissez une Classe...',
-            ))   ->add('save',SubmitType::Class,array('label'=>"Valider",'attr'=>array('class'=>'form-control')))
+            ))
             ->getForm();
         $form['Niveau:']->setData($niveau);
         $form->handleRequest($request);
-        if($form->get('save')->isClicked() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid()){
             $niveauID=$form['Niveau:']->getData()->getID();
             return $this->redirectToRoute('emploi', array('id' => $niveauID));
         }

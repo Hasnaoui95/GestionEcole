@@ -115,12 +115,15 @@ class AdminController extends Controller
             $user->getNom($nom);
             $user->getPrenom($prenom);
             $user->getEmail($email);
-            $user->getPassword($password);
+
+            $encoder = $this->container->get('security.password_encoder');
+            $encodedPassword = $encoder->encodePassword($user, $password);
+            $user->setPassword($encodedPassword);
 
             $em= $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            $this->addFlash('message','room created successfully');
+
             return $this->redirectToRoute('users_admin');
         }
         return $this->render('UserBundle:PagesAdmin:edit.html.twig',[
