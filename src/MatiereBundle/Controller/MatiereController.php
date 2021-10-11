@@ -46,7 +46,7 @@ class MatiereController extends Controller
             $this->addFlash('message','room created successfully');
             return $this->redirectToRoute('matiere_homepage');
         }
-        return $this->render('MatiereBundle:pages:create1.html.twig',[
+        return $this->render('MatiereBundle:pages:create.html.twig',[
                 'form'=>$form->createView()
             ]
         );
