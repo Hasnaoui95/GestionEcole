@@ -5,3 +5,7 @@ absence_homepage:
 absenceCreate:
     path:     /create
     defaults: { _controller: AbsenceBundle:Absence:create }
+
+AbsenceSuivant:
+    path:     /suivant/{seance_id}/
+    defaults: { _controller: AbsenceBundle:Absence:suivant }
