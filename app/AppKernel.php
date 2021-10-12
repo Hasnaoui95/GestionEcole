@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new SeancesBundle\SeancesBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new UserBundle\UserBundle(),
+            new AbsenceBundle\AbsenceBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

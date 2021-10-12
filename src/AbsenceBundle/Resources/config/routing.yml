@@ -1,0 +1,7 @@
+absence_homepage:
+    path:     /
+    defaults: { _controller: AbsenceBundle:Default:index }
+
+absenceCreate:
+    path:     /create
+    defaults: { _controller: AbsenceBundle:Absence:create }

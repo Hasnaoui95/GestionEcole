@@ -1,3 +1,7 @@
+absence:
+    resource: "@AbsenceBundle/Resources/config/routing.yml"
+    prefix:   /Absence
+
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
     prefix:   /

@@ -222,7 +222,6 @@ class Seance
         return $this->salle;
     }
 
-
 }
 
 
