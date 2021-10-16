@@ -1,0 +1,84 @@
+{% extends 'Template.html.twig' %}
+
+
+{% block body%}
+
+
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+		<!-- Content Header (pages header) -->
+		<div class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1 class="m-0">Seance</h1>
+					</div><!-- /.col -->
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-sm-right">
+							<li class="breadcrumb-item"><a href="#">Examens</a></li>
+							<li class="breadcrumb-item active">Liste</li>
+						</ol>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.container-fluid -->
+		</div>
+		<!-- /.content-header -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Liste des Examens</h3>
+								<div class="card-tools">
+									<div class="pull-right">
+										<a href="{{ path('ExamenCreate') }}" class="btn btn-block bg-gradient-success"> Ajouter</a>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<table class="table">
+									<thead>
+									<tr>
+										<th style="width: 10px">Id</th>
+										<th class="text-center">Date</th>
+										<th class="text-center">Numéro Séance</th>
+										<th class="text-center">Matière</th>
+										<th class="text-center">Classe</th>
+										<th class="text-center">Prof</th>
+
+									</tr>
+									</thead>
+									<tbody>
+									{%for u in examens %}
+										<tr>
+											<td class="text-center">{{u.id}}</td>
+											<td class="text-center">{{u.dateExamen | date('d-m-Y')}}</td>
+											<td class="text-center">{{u.numSeance}}</td>
+											<td class="text-center">{{u.matiere.getLibelle()}}</td>
+											<td class="text-center">{{u.classe.getLabel()}}</td>
+											<td class="text-center">{{ u.Salle.getLabel() }}</td>
+
+											<td class="text-center">
+												<div class="btn-group btn-group-sm">
+
+													<a class="btn btn-danger" href="{{ path('ExamenDelete', {'id': u.id}) }}"><i class="fas fa-trash"></i></a>
+												</div>
+											</td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</section>
+	</div>
+	<!-- /.content-wrapper -->
+
+
+{% endblock %}

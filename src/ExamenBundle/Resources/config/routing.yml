@@ -1,6 +1,6 @@
 examen_homepage:
-    path:     /
-    defaults: { _controller: ExamenBundle:Default:index }
+    path:     /Examen/list
+    defaults: { _controller: ExamenBundle:Examen:liste }
 
 ExamenCreate:
     path:     /Examen/create
@@ -9,3 +9,7 @@ ExamenCreate:
 EmploieExamen:
     path:     /Examen/emploie
     defaults: { _controller: ExamenBundle:Examen:emploieExamen }
+
+ExamenDelete:
+    path: /delete/{id}
+    defaults: { _controller: ExamenBundle:Examen:delete }

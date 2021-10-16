@@ -15,6 +15,16 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class ExamenController extends Controller
 {
+    public function listeAction()
+    {
+        $em= $this->getDoctrine()->getManager();
+        $examens=$em->getRepository('ExamenBundle:Examen')->findAll();
+
+        return $this->render('ExamenBundle:pages:liste.html.twig',
+            array('examens'=>$examens)
+        );
+    }
+
     public function createAction(Request $request)
     {
         $d=new \DateTime('11/06/2021');
@@ -46,11 +56,10 @@ class ExamenController extends Controller
 
     public function emploieExamenAction(UserInterface $user)
     {
-        $n=$user->getId();
+        $n=$user->getClasse();
         $entityManager = $this->getDoctrine()->getManager();
         $niveau = $entityManager->getRepository(Niveau::class)->find($n);
-
-        $examens  = $entityManager->getRepository(Examen::class)->findAll();
+        $examens  = $entityManager->getRepository(Examen::class)->findBy(array('classe' => $n));
         $item1 = new EmploiItem();
         $item2 = new EmploiItem();
         $item3 = new EmploiItem();
@@ -117,6 +126,16 @@ class ExamenController extends Controller
                 'S1'=>$s
             ]
         );
+    }
+
+    public function deleteAction(Request $request, int $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $examen = $entityManager->getRepository(Examen::class)->find($id);
+        $entityManager->remove($examen);
+        $entityManager->flush();
+
+        return $this->redirectToRoute("examen_homepage");
     }
 
 }
