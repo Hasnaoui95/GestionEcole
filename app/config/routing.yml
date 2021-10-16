@@ -1,3 +1,7 @@
+examen:
+    resource: "@ExamenBundle/Resources/config/routing.yml"
+    prefix:   /
+
 absence:
     resource: "@AbsenceBundle/Resources/config/routing.yml"
     prefix:   /Absence

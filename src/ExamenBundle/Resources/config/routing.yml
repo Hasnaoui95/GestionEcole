@@ -1,0 +1,11 @@
+examen_homepage:
+    path:     /
+    defaults: { _controller: ExamenBundle:Default:index }
+
+ExamenCreate:
+    path:     /Examen/create
+    defaults: { _controller: ExamenBundle:Examen:create }
+
+EmploieExamen:
+    path:     /Examen/emploie
+    defaults: { _controller: ExamenBundle:Examen:emploieExamen }
